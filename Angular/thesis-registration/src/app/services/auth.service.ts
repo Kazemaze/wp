@@ -21,4 +21,9 @@ export class AuthService {
   logout(): void {
     localStorage.removeItem('token'); // Token törlése
   }
+
+  getDashboardData() {
+    return this.http.get('http://localhost:8000/api/dashboard'); // Laravel API végpont
+  }
+  
 }
