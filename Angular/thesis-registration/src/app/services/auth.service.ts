@@ -25,5 +25,21 @@ export class AuthService {
   getDashboardData() {
     return this.http.get('http://localhost:8000/api/dashboard'); // Laravel API végpont
   }
+
+  getUser(): any {
+    const user = localStorage.getItem('user');
+    return user ? JSON.parse(user) : null;
+  }
+
+  refreshToken(): Observable<any> {
+    return this.http.post(`${this.apiUrl}/auth/refresh`, {});
+  }
   
+  saveToken(token: string): void {
+    localStorage.setItem('token', token);
+  }
+  
+  getToken(): string | null {
+    return localStorage.getItem('token');
+  }
 }
