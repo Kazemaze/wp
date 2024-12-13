@@ -7,7 +7,7 @@ import { AuthGuard } from './guards/auth.guard';
 const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: 'dashboard', canActivate: [AuthGuard] },
   { path: '**', redirectTo: 'login' }, // Alapértelmezett átirányítás
 ];
 
