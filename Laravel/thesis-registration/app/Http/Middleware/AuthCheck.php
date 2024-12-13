@@ -16,4 +16,11 @@ class AuthCheck
 
         return $next($request);
     }
+
+    public function refresh()
+    {
+        return response()->json([
+            'token' => auth()->refresh(),
+        ]);
+    }
 }

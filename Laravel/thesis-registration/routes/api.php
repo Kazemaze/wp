@@ -16,6 +16,8 @@ Route::middleware(['auth.check'])->group(function () {
     Route::get('/dashboard', [SomeProtectedController::class, 'index']);
     Route::get('/users', [UserController::class, 'index']); // Felhasználók listázása
     Route::put('/users/{id}', [UserController::class, 'update']); // Felhasználói adatok módosítása
+    Route::post('/auth/refresh', [AuthController::class, 'refresh']);
+
     // Más védett útvonalak...
 });
 
